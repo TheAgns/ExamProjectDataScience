@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Sentiment</title>
+</head>
+<body>
+    <form method="POST">
+        <input type="text" name="text">
+        <input type="submit" value="Predict sentiment">
+    </form>
+    {% if sentiment %}
+        <p>{{ sentiment }}</p>
+    {% endif %}
+</body>
+</html>
