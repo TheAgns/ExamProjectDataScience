@@ -1,0 +1,4 @@
+LOAD CSV WITH HEADERS FROM "file:///trustpilot.csv" AS row
+MERGE (r:Rating {rating: row.rating})
+MERGE (b:Title {title: row.title, sentiment: row.sentiment, body:row.body})
+MERGE (r)-[:HAS_BODY]->(b)
