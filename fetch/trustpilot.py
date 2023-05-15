@@ -20,6 +20,9 @@ def trustpilot(url: str, page_limit: Optional[int]=10) -> list:
         })
         response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
+        
+        company = soup.select_one('h1 > span.title_displayName__TtDDM')
+        company = company.text.strip() if company else None
 
         review_divs = soup.select('section.styles_reviewContentwrapper__zH_9M')
 
@@ -31,7 +34,7 @@ def trustpilot(url: str, page_limit: Optional[int]=10) -> list:
             body = body.text if body else None
             rating = div.select_one('div.styles_reviewHeader__iU9Px')
             rating = int(rating['data-service-review-rating']) if rating else None
-            reviews.append({"title": title, "body": body, "rating": rating})
+            reviews.append({"company": company, "title": title, "body": body, "rating": rating})
         
         i += 1
         is_last_page = soup.select_one('a.pagination-link_next__SDNU4.pagination-link_disabled__7qfis') is not None
