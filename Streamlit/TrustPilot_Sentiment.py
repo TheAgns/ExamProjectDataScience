@@ -71,3 +71,19 @@ with st.spinner("Analyzing..."):
     topics, probs = bertopic.transform([text], embeddings)
     
 st.write(bertopic.get_topic_info(topics[0]))
+
+desc = probs.argsort()[:, ::-1]
+top_n = 3
+# tabs
+tabs = st.tabs(list(map(str, range(1, top_n + 1))))
+for i, topic in enumerate(desc[0][:top_n]):
+    with tabs[i]:
+        st.write(bertopic.get_topic_info(topic))
+        st.write("{0:.2%}".format(probs[0][topic]))
+       
+# cols 
+cols = st.columns(top_n)
+for i, topic in enumerate(desc[0][:top_n]):
+    with cols[i]:
+        st.write(bertopic.get_topic_info(topic).loc[0, 'Name'])
+        st.write("{0:.2%}".format(probs[0][topic]))
