@@ -1,6 +1,10 @@
 import pickle
 
+from bertopic import BERTopic
+from sentence_transformers import SentenceTransformer
+
 import streamlit as st
+
 
 @st.cache_resource
 def load_model():
@@ -10,6 +14,16 @@ def load_model():
 @st.cache_resource
 def load_vectorizer():
     with open('../Models/count_vec.pkl', 'rb') as f:
+        return pickle.load(f)
+
+# Loading the embedder might not be necessary
+@st.cache_resource
+def load_embedder() -> SentenceTransformer:
+    return SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+
+@st.cache_resource
+def load_bertopic() -> BERTopic:
+    with open('../Models/bertopic.pkl', 'rb') as f:
         return pickle.load(f)
 
 vectorizer = load_vectorizer()
@@ -45,3 +59,15 @@ with col2:
     st.metric(label="Neutral", value="{0:.0%}".format(probs[1]))
 with col3:
     st.metric(label=":red[Negative]", value="{0:.0%}".format(probs[0]))
+
+
+embedder = load_embedder()
+bertopic = load_bertopic()
+bertopic.calculate_probabilities = True
+
+st.subheader("Topic Modeling")
+with st.spinner("Analyzing..."):
+    embeddings = embedder.encode([text])
+    topics, probs = bertopic.transform([text], embeddings)
+    
+st.write(bertopic.get_topic_info(topics[0]))
