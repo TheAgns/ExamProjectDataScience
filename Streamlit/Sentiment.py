@@ -28,9 +28,9 @@ def load_bertopic() -> BERTopic:
 
 st.title("Trustpilot Sentiment Analysis")
 
+# load models
 vectorizer = load_vectorizer()
 model = load_model()
-
 embedder = load_embedder()
 bertopic = load_bertopic()
 bertopic.calculate_probabilities = True
@@ -40,16 +40,12 @@ text = st.text_input("Enter your review here:")
 if not text:
     st.stop()
 
+# make prediction
 dtm = vectorizer.transform([text])
 pred = model.predict(dtm)[0]
 probs = model.predict_proba(dtm)[0]
-# if pred == 1:
-#     st.write("Positive")
-# elif pred == 0:
-#     st.write("Neutral")
-# elif pred == -1:
-#     st.write("Negative")
 
+# show results
 colors = {
     1: "green",
     "positive": "green",
@@ -68,6 +64,7 @@ with col2:
 with col3:
     st.metric(label=":red[Negative]", value="{0:.0%}".format(probs[0]))
 
+# Topic modeling
 st.subheader("Topic Modeling")
 with st.spinner("Analyzing..."):
     embeddings = embedder.encode([text])
