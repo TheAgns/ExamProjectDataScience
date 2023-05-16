@@ -26,12 +26,20 @@ def load_bertopic() -> BERTopic:
     with open('../Models/bertopic.pkl', 'rb') as f:
         return pickle.load(f)
 
+st.title("Trustpilot Sentiment Analysis")
+
 vectorizer = load_vectorizer()
 model = load_model()
 
-st.title("Trustpilot Sentiment Analysis")
+embedder = load_embedder()
+bertopic = load_bertopic()
+bertopic.calculate_probabilities = True
 
 text = st.text_input("Enter your review here:")
+# wait for text input
+if not text:
+    st.stop()
+
 dtm = vectorizer.transform([text])
 pred = model.predict(dtm)[0]
 probs = model.predict_proba(dtm)[0]
@@ -59,11 +67,6 @@ with col2:
     st.metric(label="Neutral", value="{0:.0%}".format(probs[1]))
 with col3:
     st.metric(label=":red[Negative]", value="{0:.0%}".format(probs[0]))
-
-
-embedder = load_embedder()
-bertopic = load_bertopic()
-bertopic.calculate_probabilities = True
 
 st.subheader("Topic Modeling")
 with st.spinner("Analyzing..."):
