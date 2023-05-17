@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+import load
+
 import streamlit as st
 
 # setting dark theme for matplot because I don't know how to plot the things with Streamlit plots.
@@ -14,10 +16,6 @@ plt.rcParams['axes.labelcolor'] = 'white'
 plt.rcParams['text.color'] = 'white'
 plt.rcParams['xtick.color'] = 'white'
 plt.rcParams['ytick.color'] = 'white'
-
-@st.cache_data
-def load_data():
-    return pd.read_csv('../Data/trustpilot.csv')
 
 def seaborn_barplot():
     fig, ax = plt.subplots()
@@ -32,20 +30,24 @@ def piechart(ax):
 
 
 st.title("Company comparison")
-df = load_data()
+bertopic = load.bertopic()
+df = load.data()
+
 companies = df['company'].unique()
 
 selected = st.multiselect("Select companies", companies)
 if not selected:
     st.stop()
 
-# bar chart
 df_selected = df[df['company'].isin(selected)]
 
-bar_cols = st.columns(len(selected))
-for company, col in zip(selected, bar_cols):
+cols = st.columns(len(selected))
+for company, col in zip(selected, cols):
     with col:
+        # bar charts
         st.bar_chart(df_selected[df_selected['company'] == company].groupby('sentiment').size())
+        
+        # pie charts
         fig, ax = plt.subplots()
         piechart(ax)
         st.pyplot(fig)

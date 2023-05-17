@@ -1,38 +1,16 @@
 import pickle
 
-from bertopic import BERTopic
-from sentence_transformers import SentenceTransformer
+import load
 
 import streamlit as st
-
-
-@st.cache_resource
-def load_model():
-    with open('../Models/bayes.pkl', 'rb') as f:
-        return pickle.load(f)
-
-@st.cache_resource
-def load_vectorizer():
-    with open('../Models/count_vec.pkl', 'rb') as f:
-        return pickle.load(f)
-
-# Loading the embedder might not be necessary
-@st.cache_resource
-def load_embedder() -> SentenceTransformer:
-    return SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-
-@st.cache_resource
-def load_bertopic() -> BERTopic:
-    with open('../Models/bertopic.pkl', 'rb') as f:
-        return pickle.load(f)
 
 st.title("Trustpilot Sentiment Analysis")
 
 # load models
-vectorizer = load_vectorizer()
-model = load_model()
-embedder = load_embedder()
-bertopic = load_bertopic()
+vectorizer = load.vectorizer()
+model = load.model()
+embedder = load.embedder()
+bertopic = load.bertopic()
 bertopic.calculate_probabilities = True
 
 text = st.text_input("Enter your review here:")
