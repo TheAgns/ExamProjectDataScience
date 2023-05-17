@@ -1,4 +1,31 @@
+The data from the reviews and the sentiments are nicely shown using a few Cypher queries that we have here.
+
+
+//This Neo4j query returns 5 nodes with ratings ranging from 1 to 5, along with a relation to the 
+reviews with the corresponding rating.
+
 LOAD CSV WITH HEADERS FROM "file:///trustpilot.csv" AS row
 MERGE (r:Rating {rating: row.rating})
-MERGE (b:Title {title: row.title, sentiment: row.sentiment, body:row.body})
-MERGE (r)-[:HAS_BODY]->(b)
+CREATE (s:Review {company: row.company, title: row.title, sentiment: row.sentiment, body:row.body})
+MERGE (r)-[:HAS_BODY]->(s)
+
+
+//This Neo4j query provides three nodes with sentiments, including positive, negative, and neutral, along with a relation to the reviews that contain that particular sentiment.
+
+LOAD CSV WITH HEADERS FROM "file:///trustpilot.csv" AS row
+MERGE (s:Sentiment {sentiment: row.sentiment})
+CREATE (r:Review {rating: row.rating, company: row.company, title: row.title, sentiment: row.sentiment, body:row.body})
+MERGE (s)-[:HAS_REVIEW]->(r)
+
+
+
+//This Neo4j query gives us three nodes with each company, Fedex, Postnord & UPS and a relation to the reviews that is made to that exact delivery company
+
+LOAD CSV WITH HEADERS FROM "file:///trustpilot.csv" AS row
+MERGE (c:Company {company: row.company})
+CREATE (r:Review {rating: row.rating, title: row.title, sentiment: row.sentiment, body:row.body})
+MERGE (c)-[:HAS_REVIEW]->(r)
+
+
+//DELETE nodes and relations
+match(n)-[r]-() delete n,r
