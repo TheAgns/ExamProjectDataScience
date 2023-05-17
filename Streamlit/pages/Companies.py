@@ -32,6 +32,9 @@ def piechart(ax):
 st.title("Company comparison")
 bertopic = load.bertopic()
 df = load.data()
+document_info = bertopic.get_document_info(df['body'])
+topic_labels = bertopic.generate_topic_labels(nr_words=3, separator=" - ")
+df = pd.concat([df, document_info[['Topic', 'Probability']]], axis=1)
 
 companies = df['company'].unique()
 
@@ -51,7 +54,12 @@ for company, col in zip(selected, cols):
         fig, ax = plt.subplots()
         piechart(ax)
         st.pyplot(fig)
-
+        
+        # topics
+        st.subheader("Topics")
+        top_n = 3
+        topics = df_selected[df_selected['company'] == company].groupby('Topic').size().sort_values(ascending=False).iloc[:top_n] 
+        [topic_labels[topic+1] for topic in topics.index]
 
 # fig, (axs,) = plt.subplots(1, len(selected), squeeze=False)
 # for company, ax in zip(selected, axs):
@@ -59,3 +67,4 @@ for company, col in zip(selected, cols):
 # st.pyplot(fig)
 
 # It would be nice to bring in topics per company.
+
