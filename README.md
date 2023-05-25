@@ -98,6 +98,8 @@ cd Streamlit
 streamlit run Sentiment.py
 ```
 
+Click the GIFs below to play them.
+
 On the **Sentiment** page, you can input a new review, and the program will predict the sentiment and categorize it into a topic.
 
 ![](2023-05-25%2016-43-49.gif)
