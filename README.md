@@ -46,7 +46,7 @@ The project consists of the following components:
 - **Preprocessing**: The raw text data obtained from the scraping process is preprocessed to remove punctuation and stopwords. To process the data even further, we could've used techniques like stemming and lemmatization.
 - **Feature Extraction**: To represent text data numerically, we get embeddings from transformer-based models like BERT. These embeddings capture the semantic relationships between words and encode them into fixed-length vectors.
 - **Model Implementation**: The chosen models, BERTopic, Bayes, Dacy Sentiment, and logistic regression, were implemented using appropriate libraries (e.g., scikit-learn, transformers). Bayes and Logistic Regression were trained on labeled data to learn the sentiment patterns and classify reviews into sentiment categories. Dacy was pretrained and we tested it on the labeled data to evaluate its accuracy.
-- **Model Evaluation**: To assess the performance of the sentiment analysis models, we employed appropriate evaluation metrics such as accuracy, precision, recall, and F1-score. We used train-test splits to evaluate the accuracy of the predictions on unknown data to ensure reliable performance.
+- **Model Evaluation**: To assess the performance of the sentiment analysis models, we employed appropriate evaluation metrics such as accuracy, precision, recall, and F1-score. We used train-test splits to evaluate the accuracy of the predictions on unknown data to ensure reliable performance. To improve the accuracy of the model further, we could employ k-fold cross-validation during training.
 
 
 # Step 3
