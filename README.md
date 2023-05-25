@@ -62,7 +62,7 @@ A Python program that employs NLP methods to do sentiment analysis and topic mod
 The solution can offer insightful information on customer attitude and popular themes, which can help businesses better understand their clientele, identify areas for development, and assess their performance against that of their rivals. Business owners, marketers, customer care agents, and data analysts are among the stakeholders that potentially gain from this solution.
 
 ## Further development/improvements 
-Build a bot for a target platform, like Discord or Reddit, that reacts and replies to negative or positive comments. This would automate getting in touch with customers who could use support to improve their experience or elicit further feedback.
+Build a bot for a target platform, like Discord or Reddit, that reacts and replies to negative or positive comments. This would automate getting in touch with customers who could use support to improve their experience or elicit further feedback. We could’ve tried many different variants using the BERTopic pipeline trying to tweak the settings for the best results. We could’ve scraped even more data to get an even better trained model to predict wether a review is positive, negative or neutral. At the same time we could’ve used stemming and lemmatization to cut all the words to their root form, and this could’ve helped the performance aswell + trying to use the text with and without stop words to see any differences.
 
 
 
