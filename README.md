@@ -26,26 +26,26 @@ The motivation behind this  project is to gain insights into the sentiment of cu
 # Theoretical Foundation:
 
 The project builds upon several theoretical foundations within the field of data science and natural language processing (NLP). Key concepts include sentiment analysis, text classification, and topic modeling.
-•	Sentiment Analysis: It involves determining the sentiment expressed in a given piece of text, whether positive, negative, or neutral. This can be achieved through machine learning algorithms that analyze the contextual information present in the text.
-•	Text Classification: The goal is to categorize text documents into predefined categories based on their content. In this project, we classify the reviews into sentiment categories such as positive, negative, or neutral.
-•	Topic Modeling: It aims to identify the underlying topics or themes within a collection of documents. Here, we utilize the BERTopic algorithm to uncover latent topics in the reviews.
+- Sentiment Analysis: It involves determining the sentiment expressed in a given piece of text, whether positive, negative, or neutral. This can be achieved through machine learning algorithms that analyze the contextual information present in the text.
+- Text Classification: The goal is to categorize text documents into predefined categories based on their content. In this project, we classify the reviews into sentiment categories such as positive, negative, or neutral.
+- Topic Modeling: It aims to identify the underlying topics or themes within a collection of documents. Here, we utilize the BERTopic algorithm to uncover latent topics in the reviews.
 
 # Argumentation of Choices:
 
 The following models were chosen for sentiment analysis based on their performance, popularity, and suitability for this project:
-•	BERTopic: BERTopic is a topic modeling technique that leverages BERT embeddings to cluster similar documents together. By applying BERTopic, we can extract meaningful topics from the reviews, allowing for a deeper understanding of customer sentiments.
-•	Bayes Classifier: The Naive Bayes classifier is a widely used algorithm for text classification tasks. It is efficient and has shown good performance in sentiment analysis applications.
-•	Dacy Sentiment: Dacy is a pre-trained sentiment analysis model that uses the Danish language. Since Trustpilot reviews can be in multiple languages, including Danish, Dacy Sentiment allows us to analyze sentiment accurately in such cases.
-•	Logistic Regression: Logistic regression is a classical statistical method that is often used as a baseline model for text classification tasks. It provides a simple yet interpretable approach to sentiment analysis.
+- BERTopic: BERTopic is a topic modeling technique that leverages BERT embeddings to cluster similar documents together. By applying BERTopic, we can extract meaningful topics from the reviews, allowing for a deeper understanding of customer sentiments.
+- Bayes Classifier: The Naive Bayes classifier is a widely used algorithm for text classification tasks. It is efficient and has shown good performance in sentiment analysis applications.
+- Dacy Sentiment: Dacy is a pre-trained sentiment analysis model that uses the Danish language. Since Trustpilot reviews can be in multiple languages, including Danish, Dacy Sentiment allows us to analyze sentiment accurately in such cases.
+- Logistic Regression: Logistic regression is a classical statistical method that is often used as a baseline model for text classification tasks. It provides a simple yet interpretable approach to sentiment analysis.
 
 # Design, Code, and Artifacts:
 
 The project consists of the following components:
-•	Data Scraping: We utilized web scraping techniques to collect reviews from Trustpilot for Postnord, FedEx, and UPS. The code for data scraping is implemented using a suitable web scraping BeautifulSoup and customized to extract the necessary information.
-•	Preprocessing: The raw text data obtained from the scraping process is preprocessed to remove noise, such as HTML tags, punctuation, and stopwords. This step also involves tokenization, stemming, and other text normalization techniques.
-•	Feature Extraction: To represent text data numerically, transformer-based embeddings like BERT. These embeddings capture the semantic relationships between words and encode them into fixed-length vectors.
-•	Model Implementation: The chosen models, BERTopic, Bayes, Dacy Sentiment, and logistic regression, were implemented using appropriate libraries (e.g., scikit-learn, transformers). The models were trained on labeled data to learn the sentiment patterns and classify reviews into sentiment categories.
-•	Model Evaluation: To assess the performance of the sentiment analysis models, we employed appropriate evaluation metrics such as accuracy, precision, recall, and F1-score. Cross-validation and/or train-test splits were used to ensure reliable performance estimation.
+- Data Scraping: We utilized web scraping techniques to collect reviews from Trustpilot for Postnord, FedEx, and UPS. The code for data scraping is implemented using a suitable web scraping BeautifulSoup and customized to extract the necessary information.
+- Preprocessing: The raw text data obtained from the scraping process is preprocessed to remove noise, such as HTML tags, punctuation, and stopwords. This step also involves tokenization, stemming, and other text normalization techniques.
+- Feature Extraction: To represent text data numerically, transformer-based embeddings like BERT. These embeddings capture the semantic relationships between words and encode them into fixed-length vectors.
+- Model Implementation: The chosen models, BERTopic, Bayes, Dacy Sentiment, and logistic regression, were implemented using appropriate libraries (e.g., scikit-learn, transformers). The models were trained on labeled data to learn the sentiment patterns and classify reviews into sentiment categories.
+- Model Evaluation: To assess the performance of the sentiment analysis models, we employed appropriate evaluation metrics such as accuracy, precision, recall, and F1-score. Cross-validation and/or train-test splits were used to ensure reliable performance estimation.
 
 
 # Step 3
