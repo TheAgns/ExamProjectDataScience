@@ -26,27 +26,27 @@ The motivation behind this  project is to gain insights into the sentiment of cu
 # Theoretical Foundation:
 
 The project builds upon several theoretical foundations within the field of data science and natural language processing (NLP). Key concepts include sentiment analysis, text classification, and topic modeling.
-- Sentiment Analysis: It involves determining the sentiment expressed in a given piece of text, whether positive, negative, or neutral. This can be achieved through machine learning algorithms that analyze the contextual information present in the text.
-- Text Classification: The goal is to categorize text documents into predefined categories based on their content. In this project, we classify the reviews into sentiment categories such as positive, negative, or neutral.
-- Topic Modeling: It aims to identify the underlying topics or themes within a collection of documents. Here, we utilize the BERTopic algorithm to uncover latent topics in the reviews.
-- Bayes' theorem: Uses conditional probability to describe the probability of a classification being true given all other factors of a sentence.
+- **Sentiment Analysis**: It involves determining the sentiment expressed in a given piece of text, whether positive, negative, or neutral. This can be achieved through machine learning algorithms that analyze the contextual information present in the text.
+- **Text Classification**: The goal is to categorize text documents into predefined categories based on their content. In this project, we classify the reviews into sentiment categories such as positive, negative, or neutral.
+- **Topic Modeling**: It aims to identify the underlying topics or themes within a collection of documents. Here, we utilize the BERTopic algorithm to uncover latent topics in the reviews.
+- **Bayes' theorem**: Uses conditional probability to describe the probability of a classification being true given all other factors of a sentence.
 
 # Argumentation of Choices:
 
 The following models were chosen for sentiment analysis based on their performance, popularity, and suitability for this project:
-- BERTopic: BERTopic is a topic modeling technique that leverages BERT embeddings to cluster similar documents together. By applying BERTopic, we can extract meaningful topics from the reviews, allowing for a deeper understanding of customer sentiments.
-- Bayes Classifier: The Naive Bayes classifier is a widely used algorithm for text classification tasks. It is efficient and has shown good performance in sentiment analysis applications.
-- Dacy Sentiment: Dacy is a pre-trained sentiment analysis model that uses the Danish language. Since Trustpilot reviews can be in multiple languages, including Danish, Dacy Sentiment allows us to analyze sentiment accurately in such cases.
-- Logistic Regression: Logistic regression is a classical statistical method that is often used as a baseline model for text classification tasks. It provides a simple yet interpretable approach to sentiment analysis.
+- **BERTopic**: BERTopic is a topic modeling technique that leverages BERT embeddings to cluster similar documents together. By applying BERTopic, we can extract meaningful topics from the reviews, allowing for a deeper understanding of customer sentiments.
+- **Bayes Classifier**: The Naive Bayes classifier is a widely used algorithm for text classification tasks. It is efficient and has shown good performance in sentiment analysis applications.
+- **Dacy Sentiment**: Dacy is a pre-trained sentiment analysis model that uses the Danish language. Since Trustpilot reviews can be in multiple languages, including Danish, Dacy Sentiment allows us to analyze sentiment accurately in such cases.
+- **Logistic Regression**: Logistic regression is a classical statistical method that is often used as a baseline model for text classification tasks. It provides a simple yet interpretable approach to sentiment analysis.
 
 # Design, Code, and Artifacts:
 
 The project consists of the following components:
-- Data Scraping: We utilized web scraping techniques to collect reviews from Trustpilot for Postnord, FedEx, and UPS. The code for data scraping is implemented using a suitable web scraping package, BeautifulSoup, and customized to extract the necessary information.
-- Preprocessing: The raw text data obtained from the scraping process is preprocessed to remove punctuation and stopwords. To process the data even further, we could've used techniques like stemming and lemmatization.
-- Feature Extraction: To represent text data numerically, we get embeddings from transformer-based models like BERT. These embeddings capture the semantic relationships between words and encode them into fixed-length vectors.
-- Model Implementation: The chosen models, BERTopic, Bayes, Dacy Sentiment, and logistic regression, were implemented using appropriate libraries (e.g., scikit-learn, transformers). Bayes and Logistic Regression were trained on labeled data to learn the sentiment patterns and classify reviews into sentiment categories. Dacy was pretrained and we tested it on the labeled data to evaluate its accuracy.
-- Model Evaluation: To assess the performance of the sentiment analysis models, we employed appropriate evaluation metrics such as accuracy, precision, recall, and F1-score. We used train-test splits to evaluate the accuracy of the predictions on unknown data to ensure reliable performance.
+- **Data Scraping**: We utilized web scraping techniques to collect reviews from Trustpilot for Postnord, FedEx, and UPS. The code for data scraping is implemented using a suitable web scraping package, BeautifulSoup, and customized to extract the necessary information.
+- **Preprocessing**: The raw text data obtained from the scraping process is preprocessed to remove punctuation and stopwords. To process the data even further, we could've used techniques like stemming and lemmatization.
+- **Feature Extraction**: To represent text data numerically, we get embeddings from transformer-based models like BERT. These embeddings capture the semantic relationships between words and encode them into fixed-length vectors.
+- **Model Implementation**: The chosen models, BERTopic, Bayes, Dacy Sentiment, and logistic regression, were implemented using appropriate libraries (e.g., scikit-learn, transformers). Bayes and Logistic Regression were trained on labeled data to learn the sentiment patterns and classify reviews into sentiment categories. Dacy was pretrained and we tested it on the labeled data to evaluate its accuracy.
+- **Model Evaluation**: To assess the performance of the sentiment analysis models, we employed appropriate evaluation metrics such as accuracy, precision, recall, and F1-score. We used train-test splits to evaluate the accuracy of the predictions on unknown data to ensure reliable performance.
 
 
 # Step 3
