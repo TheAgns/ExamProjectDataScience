@@ -14,6 +14,8 @@
   - [Expected Solution](#expected-solution)
   - [Impact and beneficiaries](#impact-and-beneficiaries)
   - [Further development/improvements](#further-developmentimprovements)
+- [Step 4](#step-4)
+  - [Streamlit](#streamlit)
 
 # Step 1
 ## Folder structure:
@@ -86,3 +88,20 @@ Build a bot for a target platform, like Discord or Reddit, that reacts and repli
 We could’ve tried many different variants using the BERTopic pipeline trying to tweak the settings for the best results.
 
 We could’ve scraped even more data to get an even better trained model to predict wether a review is positive, negative or neutral. At the same time we could’ve used stemming and lemmatization to cut all the words to their root form, and this could’ve helped the performance aswell + trying to use the text with and without stop words to see any differences.
+
+# Step 4
+## Streamlit
+We've used Streamlit to create a user interface where you can try our models.
+
+```shell
+cd Streamlit
+streamlit run Sentiment.py
+```
+
+On the **Sentiment** page, you can input a new review, and the program will predict the sentiment and categorize it into a topic.
+
+![](2023-05-25%2016-43-49.gif)
+
+On the **Companies** page, you can compare the different companies in our data. It will show bar and pie charts with the distribution of that companies' reviews' sentiments. It will also show the most common topics for that company.
+
+![](2023-05-25%2017-06-15.gif)
