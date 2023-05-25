@@ -26,11 +26,11 @@
 📁Streamlit: Our frontend visualization with logistic regression using streamlit, guide how to run it is inside Streamlit -> readme
 
 ## Project Struture path
-📑1. dacy_sentiment.ipynb
+📑1. bertopic.ipynb
 
-📑2. bayes.ipynb
+📑2. dacy_sentiment.ipynb
 
-📑3. bertopic.ipynb
+📑3. bayes.ipynb
 
 📑4. logistic Regression.ipynb
 
