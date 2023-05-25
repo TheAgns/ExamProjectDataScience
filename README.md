@@ -41,9 +41,9 @@ The following models were chosen for sentiment analysis based on their performan
 # Design, Code, and Artifacts:
 
 The project consists of the following components:
-- Data Scraping: We utilized web scraping techniques to collect reviews from Trustpilot for Postnord, FedEx, and UPS. The code for data scraping is implemented using a suitable web scraping BeautifulSoup and customized to extract the necessary information.
+- Data Scraping: We utilized web scraping techniques to collect reviews from Trustpilot for Postnord, FedEx, and UPS. The code for data scraping is implemented using a suitable web scraping package, BeautifulSoup, and customized to extract the necessary information.
 - Preprocessing: The raw text data obtained from the scraping process is preprocessed to remove noise, such as HTML tags, punctuation, and stopwords. This step also involves tokenization, stemming, and other text normalization techniques.
-- Feature Extraction: To represent text data numerically, transformer-based embeddings like BERT. These embeddings capture the semantic relationships between words and encode them into fixed-length vectors.
+- Feature Extraction: To represent text data numerically, we get embeddings from transformer-based models like BERT. These embeddings capture the semantic relationships between words and encode them into fixed-length vectors.
 - Model Implementation: The chosen models, BERTopic, Bayes, Dacy Sentiment, and logistic regression, were implemented using appropriate libraries (e.g., scikit-learn, transformers). The models were trained on labeled data to learn the sentiment patterns and classify reviews into sentiment categories.
 - Model Evaluation: To assess the performance of the sentiment analysis models, we employed appropriate evaluation metrics such as accuracy, precision, recall, and F1-score. Cross-validation and/or train-test splits were used to ensure reliable performance estimation.
 
