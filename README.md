@@ -1,29 +1,48 @@
 # Sentiment Analysis
-### Step 1: Structure
-### Step 2: Motivation, Theoretical Foundation, Argumentation of Choices, Design, Code, and Artifacts
-### Step 3: Resume and excpeted solution
-
+## Table of contents
+- [Sentiment Analysis](#sentiment-analysis)
+- [Step 1](#step-1)
+  - [Folder structure:](#folder-structure)
+  - [Project Struture path](#project-struture-path)
+- [Step 2](#step-2)
+  - [Motivation:](#motivation)
+  - [Theoretical Foundation:](#theoretical-foundation)
+  - [Argumentation of Choices:](#argumentation-of-choices)
+  - [Design, Code, and Artifacts:](#design-code-and-artifacts)
+- [Step 3](#step-3)
+  - [Interesting study objective](#interesting-study-objective)
+  - [Expected Solution](#expected-solution)
+  - [Impact and beneficiaries](#impact-and-beneficiaries)
+  - [Further development/improvements](#further-developmentimprovements)
 
 # Step 1
-# Folder structure:
-##### 📁Data folder: Includes all data scraped and cleaned data we are working with
-##### 📁Models: Includes the result from our models saved as pickles, to use in our frontend visualiaztion and to compare the models.
-##### 📁fetch: Our .py script where we scrape data from Trustpilot
-##### 📁Streamlit: Our frontend visualization with logistic regression using streamlit, guide how to run it is inside Streamlit -> readme
+## Folder structure:
+📁Data folder: Includes all data scraped and cleaned data we are working with.
 
-# Project Struture path
-##### 📑1. dacy_sentiment.ipynb
-##### 📑2. bayes.ipynb
-##### 📑3. bertopic.ipynb
-##### 📑4. logistic Regression.ipynb
-##### 📑5. performance_comparison.ipynb
-##### 📑6. CypherQuery
+📁Models: Includes the result from our models saved as pickles, to use in our frontend visualiaztion and to compare the models.
+
+📁fetch: Our .py script where we scrape data from Trustpilot.
+
+📁Streamlit: Our frontend visualization with logistic regression using streamlit, guide how to run it is inside Streamlit -> readme
+
+## Project Struture path
+📑1. dacy_sentiment.ipynb
+
+📑2. bayes.ipynb
+
+📑3. bertopic.ipynb
+
+📑4. logistic Regression.ipynb
+
+📑5. performance_comparison.ipynb
+
+📑6. CypherQuery
 
 # Step 2
-# Motivation:
+## Motivation:
 The motivation behind this  project is to gain insights into the sentiment of customer reviews on Trustpilot regarding the courier services provided by Postnord, FedEx, and UPS. By scraping and analyzing these reviews, we try to identify patterns, sentiment trends, and potential areas for improvement for each courier service. This information can be valuable for the companies involved in enhancing their customer experience and optimizing their operations.
 
-# Theoretical Foundation:
+## Theoretical Foundation:
 
 The project builds upon several theoretical foundations within the field of data science and natural language processing (NLP). Key concepts include sentiment analysis, text classification, and topic modeling.
 - **Sentiment Analysis**: It involves determining the sentiment expressed in a given piece of text, whether positive, negative, or neutral. This can be achieved through machine learning algorithms that analyze the contextual information present in the text.
@@ -31,7 +50,7 @@ The project builds upon several theoretical foundations within the field of data
 - **Topic Modeling**: It aims to identify the underlying topics or themes within a collection of documents. Here, we utilize the BERTopic algorithm to uncover latent topics in the reviews.
 - **Bayes' theorem**: Uses conditional probability to describe the probability of a classification being true given all other factors of a sentence.
 
-# Argumentation of Choices:
+## Argumentation of Choices:
 
 The following models were chosen for sentiment analysis based on their performance, popularity, and suitability for this project:
 - **BERTopic**: BERTopic is a topic modeling technique that leverages BERT embeddings to cluster similar documents together. By applying BERTopic, we can extract meaningful topics from the reviews, allowing for a deeper understanding of customer sentiments.
@@ -39,7 +58,7 @@ The following models were chosen for sentiment analysis based on their performan
 - **Dacy Sentiment**: Dacy is a pre-trained sentiment analysis model that uses the Danish language. Since Trustpilot reviews can be in multiple languages, including Danish, Dacy Sentiment allows us to analyze sentiment accurately in such cases.
 - **Logistic Regression**: Logistic regression is a classical statistical method that is often used as a baseline model for text classification tasks. It provides a simple yet interpretable approach to sentiment analysis.
 
-# Design, Code, and Artifacts:
+## Design, Code, and Artifacts:
 
 The project consists of the following components:
 - **Data Scraping**: We utilized web scraping techniques to collect reviews from Trustpilot for Postnord, FedEx, and UPS. The code for data scraping is implemented using a suitable web scraping package, BeautifulSoup, and customized to extract the necessary information.
