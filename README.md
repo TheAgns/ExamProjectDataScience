@@ -93,6 +93,8 @@ We could’ve scraped even more data to get an even better trained model to pred
 ## Streamlit
 We've used Streamlit to create a user interface where you can try our models.
 
+The [requirements.txt](requirements.txt) file specifies the version of Altair to use. This is important as the current version of Streamlit doesn't work with Altair v. 5. As an alternative to installing all dependencies from the requirements file, you can run `pip install "altair<5"` to downgrade that dependency.
+
 ```shell
 cd Streamlit
 streamlit run Sentiment.py
